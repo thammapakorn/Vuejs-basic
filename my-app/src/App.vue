@@ -1,6 +1,6 @@
 <template>
  <section>
-    <h1>ชื่อผู้สมัครงาน : {{firstName }}</h1>
+    <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h2>{{ 8700+200 }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
@@ -21,7 +21,7 @@ export default {
   },
   methods:{
     getFullName(){
-      return this.firstName + this.lastName
+      return `${this.firstName}  ${this.lastName}`
     }
   }
 }
