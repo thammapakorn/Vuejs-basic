@@ -11,6 +11,13 @@
       <li>{{ hobby[1] }}</li>
       <li>{{ hobby[2] }}</li>
     </ul>
+    <h2>ข้อมูลพื้นฐาน</h2>
+    <ul>
+      <li>ข้อมูลเพศ : {{ general.gender }}</li>
+      <li>น้ำหนัก : {{ general.weight }}</li>
+      <li>ส่วนสูง : {{ general.height }}</li>
+      <li>โรคประจำตัว : {{ general.status }}</li>
+    </ul>
  </section>
 </template>
 
@@ -27,7 +34,8 @@ export default {
       picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
       size:100,
       social:"https://www.facebook.com/preammaerq/",
-      hobby:["อ่านหนังสือ","เล่นเกม","ฟังเพลง","ดูหนัง"]
+      hobby:["อ่านหนังสือ","เล่นเกม","ฟังเพลง","ดูหนัง"],
+      general:{gender:"Male",weight:60.5,height:175,status:false}
     }
   },
   methods:{
