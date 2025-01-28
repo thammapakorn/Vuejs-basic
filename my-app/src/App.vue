@@ -3,6 +3,7 @@
     <img v-bind:src="picture" :width="size" :height="size"/>
     <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
+    <h1>อายุ : {{ age }}</h1>
     <h2>{{ 8700+200 }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
     <a :href="social" target="_blank"><h2>Facebook</h2></a>
@@ -18,6 +19,9 @@
       <li>ส่วนสูง : {{ general.height }}</li>
       <li>โรคประจำตัว : {{ general.status }}</li>
     </ul>
+    <button @click="showWebName">คลิ๊กเพื่อแสดงชื่อเว็บ</button>
+    <button @click="addAge">เพิ่มอายุ</button>
+    <button @click="downAge">ลดอายุ</button>
  </section>
 </template>
 
@@ -35,12 +39,22 @@ export default {
       size:100,
       social:"https://www.facebook.com/preammaerq/",
       hobby:["อ่านหนังสือ","เล่นเกม","ฟังเพลง","ดูหนัง"],
-      general:{gender:"Male",weight:60.5,height:175,status:false}
+      general:{gender:"Male",weight:60.5,height:175,status:false},
+      webname: "Vue.js basic"
     }
   },
   methods:{
     getFullName(){
       return `${this.firstName}  ${this.lastName}`
+    },
+    showWebName(){
+      alert(this.webname)
+    },
+    addAge(){
+      return this.age++
+    },
+    downAge(){
+      return this.age--
     }
   }
 }
