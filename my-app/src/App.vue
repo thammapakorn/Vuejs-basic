@@ -1,5 +1,6 @@
 <template>
  <section>
+    <img v-bind:src="picture" :width="size" :height="size"/>
     <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h2>{{ 8700+200 }}</h2>
@@ -16,7 +17,9 @@ export default {
       firstName: "Pream1100",
       lastName: "Nilpan",
       age: 15,
-      address:"<i>Bangkok</i>"
+      address:"<i>Bangkok</i>",
+      picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
+      size:100
     }
   },
   methods:{
