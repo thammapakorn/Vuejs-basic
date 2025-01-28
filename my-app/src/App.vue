@@ -8,10 +8,8 @@
     <a :href="social" target="_blank"><h2>Facebook</h2></a>
     <h2>งานอดิเรก :</h2>
     <ul>
-      <li>
-        {{ hobby[1] }}
-        {{ hobby[2] }}
-      </li>
+      <li>{{ hobby[1] }}</li>
+      <li>{{ hobby[2] }}</li>
     </ul>
  </section>
 </template>
