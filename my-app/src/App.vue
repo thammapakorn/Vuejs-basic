@@ -20,8 +20,8 @@
       <li>โรคประจำตัว : {{ general.status }}</li>
     </ul>
     <button @click="showWebName">คลิ๊กเพื่อแสดงชื่อเว็บ</button>
-    <button @click="addAge">เพิ่มอายุ</button>
-    <button @click="downAge">ลดอายุ</button>
+    <button @click="addAge(10)">เพิ่มอายุ</button>
+    <button @click="downAge(5)">ลดอายุ</button>
  </section>
 </template>
 
@@ -50,11 +50,11 @@ export default {
     showWebName(){
       alert(this.webname)
     },
-    addAge(){
-      return this.age++
+    addAge(value){
+      return this.age+=value
     },
-    downAge(){
-      return this.age--
+    downAge(value){
+      return this.age-=value
     }
   }
 }
