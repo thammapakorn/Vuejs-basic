@@ -5,6 +5,14 @@
     <h1>นามสกุล : {{lastName }}</h1>
     <h2>{{ 8700+200 }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
+    <a :href="social" target="_blank"><h2>Facebook</h2></a>
+    <h2>งานอดิเรก :</h2>
+    <ul>
+      <li>
+        {{ hobby[1] }}
+        {{ hobby[2] }}
+      </li>
+    </ul>
  </section>
 </template>
 
@@ -19,7 +27,9 @@ export default {
       age: 15,
       address:"<i>Bangkok</i>",
       picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
-      size:100
+      size:100,
+      social:"https://www.facebook.com/preammaerq/",
+      hobby:["อ่านหนังสือ","เล่นเกม","ฟังเพลง","ดูหนัง"]
     }
   },
   methods:{
