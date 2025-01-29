@@ -1,9 +1,11 @@
 <template>
  <section>
     <img v-bind:src="picture" :width="size" :height="size"/><br/>
-    <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
+    <h1>ชื่อผู้สมัครงาน : {{ getFullName }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h1>อายุ : {{ age }}</h1>
+    <h2>Method : {{ getRandomByMethod() }}</h2>
+    <h2>Computed : {{ getRandomByComputed }}</h2>
     <button @click="toggleVisible">{{isVisible ? "ซ่อน":"แสดง"}}รายละเอียดพนักงาน</button>
     <article v-show="isVisible">
       <h2>{{ 8700+200 }}</h2>
@@ -47,13 +49,20 @@ export default {
     }
   },
   methods:{
+    toggleVisible(){
+      this.isVisible= !this.isVisible;
+    },
+    getRandomByMethod(){
+        return Math.random();
+    }
+  },
+  computed:{
     getFullName(){
       return `${this.firstName}  ${this.lastName}`
     },
-    toggleVisible(){
-      this.isVisible= !this.isVisible;
+    getRandomByComputed(){
+      return Math.random();
     }
-    
   }
 }
 </script>
