@@ -1,23 +1,22 @@
 <template>
  <section>
     <img v-bind:src="picture" :width="size" :height="size"/><br/>
-    <form @submit.prevent="submitForm">
-      <label>ป้อนชื่อเล่น : </label>
-      <input type="text" ref="nicknameEl"/>
-      <button type="submit">บันทึกชื่อเล่น</button>
-    </form>
     <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
-    <h1>ชื่อเล่น : {{ nickName }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h1>อายุ : {{ age }}</h1>
     <h2>{{ 8700+200 }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
     <a :href="social" target="_blank"><h2>Facebook</h2></a>
-    <h2>งานอดิเรก :</h2>
+    <p v-if="hobby.length === 0">ไม่มีงานอดิเรก</p>
+    <div v-else>
+      <p>งานอดิเรก :</p>
     <ul>
+      <li>{{ hobby[0] }}</li>
       <li>{{ hobby[1] }}</li>
       <li>{{ hobby[2] }}</li>
     </ul>
+
+    </div>
     <h2>ข้อมูลพื้นฐาน</h2>
     <ul>
       <li>ข้อมูลเพศ : {{ general.gender }}</li>
@@ -25,9 +24,6 @@
       <li>ส่วนสูง : {{ general.height }}</li>
       <li>โรคประจำตัว : {{ general.status }}</li>
     </ul>
-    <button @click="showWebName">คลิ๊กเพื่อแสดงชื่อเว็บ</button>
-    <button @click.ctrl="addAge(10)">เพิ่มอายุ</button>
-    <button @click.middle="downAge(5)">ลดอายุ</button>
  </section>
 </template>
 
@@ -45,7 +41,7 @@ export default {
       picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
       size:100,
       social:"https://www.facebook.com/preammaerq/",
-      hobby:["อ่านหนังสือ","เล่นเกม","ฟังเพลง","ดูหนัง"],
+      hobby:["อ่านหนังสือ"],
       general:{gender:"Male",weight:60.5,height:175,status:false},
       webname: "Vue.js basic"
     }
@@ -53,18 +49,6 @@ export default {
   methods:{
     getFullName(){
       return `${this.firstName}  ${this.lastName}`
-    },
-    showWebName(){
-      alert(this.webname)
-    },
-    addAge(value){
-      return this.age+=value
-    },
-    downAge(value){
-      return this.age-=value
-    },
-    submitForm(){
-      this.nickName=this.$refs.nicknameEl.value;
     }
   }
 }
