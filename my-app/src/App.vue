@@ -1,7 +1,9 @@
 <template>
  <section>
-    <img v-bind:src="picture" :width="size" :height="size"/>
+    <img v-bind:src="picture" :width="size" :height="size"/><br/>
     <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
+    กรอกชื่อเล่น : <input type="text" v-on:input="setNickName"/>
+    <h1>ชื่อเล่น : {{ nickName }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h1>อายุ : {{ age }}</h1>
     <h2>{{ 8700+200 }}</h2>
@@ -20,8 +22,8 @@
       <li>โรคประจำตัว : {{ general.status }}</li>
     </ul>
     <button @click="showWebName">คลิ๊กเพื่อแสดงชื่อเว็บ</button>
-    <button @click="addAge(10)">เพิ่มอายุ</button>
-    <button @click="downAge(5)">ลดอายุ</button>
+    <button @click.ctrl="addAge(10)">เพิ่มอายุ</button>
+    <button @click.middle="downAge(5)">ลดอายุ</button>
  </section>
 </template>
 
@@ -33,6 +35,7 @@ export default {
     return{
       firstName: "Pream1100",
       lastName: "Nilpan",
+      nickName: "",
       age: 15,
       address:"<i>Bangkok</i>",
       picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
@@ -55,6 +58,9 @@ export default {
     },
     downAge(value){
       return this.age-=value
+    },
+    setNickName(event){
+     this.nickName=event.target.value;
     }
   }
 }
