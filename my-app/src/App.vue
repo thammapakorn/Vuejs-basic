@@ -17,10 +17,7 @@
     </div>
     <h2>ข้อมูลพื้นฐาน</h2>
     <ul>
-      <li>ข้อมูลเพศ : {{ general.gender }}</li>
-      <li>น้ำหนัก : {{ general.weight }}</li>
-      <li>ส่วนสูง : {{ general.height }}</li>
-      <li>โรคประจำตัว : {{ general.status }}</li>
+      <li v-for="(item,key) in general" :key="key">{{ key }} - {{ item }}</li>
     </ul>
  </section>
 </template>
