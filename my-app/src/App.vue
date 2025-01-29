@@ -3,7 +3,7 @@
     <img v-bind:src="picture" :width="size" :height="size"/><br/>
     <form @submit.prevent="submitForm">
       <label>ป้อนชื่อเล่น : </label>
-      <input type="text" v-on:input="setNickName"/>
+      <input type="text" ref="nicknameEl"/>
       <button type="submit">บันทึกชื่อเล่น</button>
     </form>
     <h1>ชื่อผู้สมัครงาน : {{ getFullName() }}</h1>
@@ -63,11 +63,8 @@ export default {
     downAge(value){
       return this.age-=value
     },
-    setNickName(event){
-     this.nickName=event.target.value;
-    },
     submitForm(){
-      alert("บันทึกชื่อเล่นเรียบร้อย");
+      this.nickName=this.$refs.nicknameEl.value;
     }
   }
 }
