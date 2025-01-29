@@ -11,9 +11,7 @@
     <div v-else>
       <p>งานอดิเรก :</p>
     <ul>
-      <li>{{ hobby[0] }}</li>
-      <li>{{ hobby[1] }}</li>
-      <li>{{ hobby[2] }}</li>
+      <li v-for="(item,index) in hobby" :key="index">{{ item }} </li>
     </ul>
 
     </div>
@@ -41,7 +39,7 @@ export default {
       picture: "https://cdn-icons-png.flaticon.com/512/4042/4042171.png",
       size:100,
       social:"https://www.facebook.com/preammaerq/",
-      hobby:["อ่านหนังสือ"],
+      hobby:["อ่านหนังสือ","เล่นเกม","ทำอาหาร","ดูหนัง","เลี้ยงแมว"],
       general:{gender:"Male",weight:60.5,height:175,status:false},
       webname: "Vue.js basic"
     }
