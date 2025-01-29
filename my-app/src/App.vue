@@ -4,13 +4,9 @@
     <h1>ชื่อผู้สมัครงาน : {{ getFullName }}</h1>
     <h1>นามสกุล : {{lastName }}</h1>
     <h1>อายุ : {{ age }}</h1>
-    <h2>Method 1: {{ getRandomByMethod() }}</h2>
-    <h2>Method 2: {{ getRandomByMethod() }}</h2>
-
-    <hr>
-    <h2>Computed 1: {{ getRandomByComputed }}</h2>
-    <h2>Computed 2: {{ getRandomByComputed }}</h2>
-
+    <h1>เงินเดือน : {{ salary }} บาท</h1>
+    <button @click="addSalary(5000)">เพิ่มเงินเดือน</button>
+    <h1>ตำแหน่งงาน : {{ getDepartment }}</h1>
     <button @click="toggleVisible">{{isVisible ? "ซ่อน":"แสดง"}}รายละเอียดพนักงาน</button>
     <article v-show="isVisible">
       <h2>{{ 8700+200 }}</h2>
@@ -50,23 +46,24 @@ export default {
       hobby:["อ่านหนังสือ","เล่นเกม","ทำอาหาร","ดูหนัง","เลี้ยงแมว"],
       general:{gender:"Male",weight:60.5,height:175,status:false},
       webname: "Vue.js basic",
-      isVisible: false
+      isVisible: false,
+      salary: 20000
     }
   },
   methods:{
     toggleVisible(){
       this.isVisible= !this.isVisible;
     },
-    getRandomByMethod(){
-        return Math.random();
+    addSalary(value){
+      this.salary += value;
     }
   },
   computed:{
     getFullName(){
       return `${this.firstName}  ${this.lastName}`
     },
-    getRandomByComputed(){
-      return Math.random();
+    getDepartment(){
+      return this.salary >= 35000 ? "Project manager" : "Programmer" 
     }
   }
 }
